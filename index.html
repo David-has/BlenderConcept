@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unofficial redesign concept for the Blender landing page: a free and open source 3D suite.">
+  <meta name="theme-color" content="#0b0c10">
+  <title>Blender | Redesign concept (unofficial)</title>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('bl-theme'); } catch (e) {}
+      if (!t) {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="notice">
+    <p>Unofficial redesign <strong>concept</strong>, made as an exercise. Not affiliated with the Blender Foundation. Official site: <a href="https://www.blender.org/" target="_blank" rel="noopener">blender.org</a></p>
+  </div>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home" aria-label="Blender, unofficial concept">
+        <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffb347"/>
+              <stop offset=".6" stop-color="#ff7a1a"/>
+              <stop offset="1" stop-color="#ff4d6d"/>
+            </linearGradient>
+          </defs>
+          <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="url(#logoGrad)"/>
+          <polygon points="16,9 22,12.5 22,19.5 16,23 10,19.5 10,12.5" fill="none" stroke="#1a0d00" stroke-width="2.2" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-name">Blender</span>
+        <em class="logo-tag">concept</em>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#render">Rendering</a>
+        <a href="#opensource">Open source</a>
+        <a href="#resources">Resources</a>
+        <a href="#start">Get started</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button"></button>
+        <a class="btn btn-small nav-cta" data-download href="https://www.blender.org/download/" target="_blank" rel="noopener">Download</a>
+        <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <a class="pill" href="https://www.blender.org/download/" target="_blank" rel="noopener">
+            <span class="dot"></span>Now in testing: Blender 5.3 RC<span class="arrow">→</span>
+          </a>
+          <h1>Create anything in 3D. <span class="gradient-text">Free.</span></h1>
+          <p class="lead">Blender is a free and open source 3D program: modeling, sculpting, animation, VFX, rendering and 2D drawing, all in one place.</p>
+          <div class="hero-buttons">
+            <a class="btn" data-download href="https://www.blender.org/download/" target="_blank" rel="noopener">Download Blender</a>
+            <a class="btn btn-ghost" href="#features">See the features</a>
+          </div>
+          <ul class="meta-list">
+            <li>Windows</li>
+            <li>macOS</li>
+            <li>Linux</li>
+            <li>GPL license</li>
+          </ul>
+        </div>
+        <div class="hero-art">
+          <div class="art-glow" aria-hidden="true"></div>
+          <div class="art-wrap tilt" data-art="hero"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts">
+      <div class="container facts-grid">
+        <div class="fact" data-reveal><strong>$0</strong><span>Free, forever</span></div>
+        <div class="fact" data-reveal><strong>GPL</strong><span>Open source code</span></div>
+        <div class="fact" data-reveal><strong>3</strong><span>Windows, macOS and Linux</span></div>
+        <div class="fact" data-reveal><strong>Python</strong><span>Full API for automation</span></div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
+    <section class="section" id="features">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Everything you need</p>
+        <h2 class="title" data-reveal>One program. <span class="gradient-text">The whole process.</span></h2>
+        <p class="sub" data-reveal>From the first sketch to the final render, without switching apps.</p>
+        <div class="features" data-reveal>
+          <div class="tabs" id="featTabs" role="tablist" aria-orientation="vertical" aria-label="Features"></div>
+          <div class="panel" id="featPanel" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="render">
+      <div class="container render-grid">
+        <div class="render-copy" data-reveal>
+          <p class="eyebrow">Rendering</p>
+          <h2 class="title left">Watch the image <span class="gradient-text">refine itself</span></h2>
+          <p class="sub left">A path tracer computes light more and more precisely as it gathers samples. Move the slider and watch the noise fade. This is a visual simulation, for illustration only.</p>
+          <div class="controls">
+            <label class="control-row" for="samples">
+              <span>Samples per pixel</span>
+              <output id="sampleOut" for="samples">8</output>
+            </label>
+            <input type="range" id="samples" min="0" max="9" step="1" value="3">
+            <label class="switch" for="denoise">
+              <input type="checkbox" id="denoise">
+              <span class="track"><span class="thumb"></span></span>
+              <span>Noise reduction (denoise)</span>
+            </label>
+          </div>
+        </div>
+        <div class="render-view" data-reveal>
+          <div class="render-frame">
+            <div data-art="scene"></div>
+            <div class="noise" id="noise"></div>
+            <span class="render-tag" id="renderTag">8 samples</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="opensource">
+      <div class="container">
+        <div class="os-card" data-reveal>
+          <div class="os-text">
+            <p class="eyebrow">Free and open source</p>
+            <h2 class="title left">Owned by the community. <span class="gradient-text">Forever.</span></h2>
+            <p class="sub left">Blender is a public project under the GNU GPL license, owned by its contributors. It will remain free and open source.</p>
+            <ul class="checks">
+              <li>No subscriptions or hidden fees</li>
+              <li>Open source code, reviewed by the community</li>
+              <li>Use it for any project, including commercial ones</li>
+            </ul>
+            <div class="hero-buttons">
+              <a class="btn" href="https://fund.blender.org/" target="_blank" rel="noopener">Support development</a>
+              <a class="btn btn-ghost" href="https://www.blender.org/about/license/" target="_blank" rel="noopener">About the license</a>
+            </div>
+          </div>
+          <div class="os-badge" aria-hidden="true">
+            <svg viewBox="0 0 220 220">
+              <defs>
+                <linearGradient id="osGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffb347"/>
+                  <stop offset=".6" stop-color="#ff7a1a"/>
+                  <stop offset="1" stop-color="#ff4d6d"/>
+                </linearGradient>
+              </defs>
+              <polygon class="hex" points="110,12 196,61 196,159 110,208 24,159 24,61" fill="none" stroke="url(#osGrad)" stroke-width="3"/>
+              <polygon class="hex2" points="110,44 168,77 168,143 110,176 52,143 52,77" fill="url(#osGrad)" fill-opacity=".14" stroke="url(#osGrad)" stroke-width="2"/>
+              <text x="110" y="124" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="44" fill="url(#osGrad)">GPL</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="industry" data-reveal>
+          <h3>Part of the industry</h3>
+          <p>A member of the foundations and consortia that shape the standards of graphics and free software.</p>
+          <div class="chips">
+            <span>Academy Software Foundation</span>
+            <span>Khronos Group</span>
+            <span>Linux Foundation</span>
+            <span>Open Invention Network</span>
+          </div>
+          <p class="small">Development is also supported by hardware makers:</p>
+          <div class="chips chips-soft">
+            <span>AMD</span>
+            <span>Apple</span>
+            <span>Intel</span>
+            <span>NVIDIA</span>
+            <span>Qualcomm</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="resources">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Ecosystem</p>
+        <h2 class="title" data-reveal>Learn, watch, <span class="gradient-text">contribute</span></h2>
+        <p class="sub" data-reveal>Guides, films, code and people. All one click away, on the official sites.</p>
+        <div class="res-grid">
+          <a class="res-card" data-reveal href="https://docs.blender.org/manual/en/latest/" target="_blank" rel="noopener">
+            <div data-art="manual"></div>
+            <h3>The Manual</h3>
+            <p>Complete documentation, from first steps to advanced features.</p>
+            <span class="more">Open the manual →</span>
+          </a>
+          <a class="res-card" data-reveal href="https://studio.blender.org/" target="_blank" rel="noopener">
+            <div data-art="studio"></div>
+            <h3>Blender Studio</h3>
+            <p>Open movies, training and tools used by the production team itself.</p>
+            <span class="more">Visit Studio →</span>
+          </a>
+          <a class="res-card" data-reveal href="https://code.blender.org/" target="_blank" rel="noopener">
+            <div data-art="dev"></div>
+            <h3>Development</h3>
+            <p>Technical news, plans and the development team's workshops.</p>
+            <span class="more">Read the blog →</span>
+          </a>
+          <a class="res-card" data-reveal href="https://www.blender.org/community/" target="_blank" rel="noopener">
+            <div data-art="community"></div>
+            <h3>Community</h3>
+            <p>Forums, events, tutorial makers and add-on developers.</p>
+            <span class="more">Find communities →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="start">
+      <div class="container">
+        <p class="eyebrow" data-reveal>How to start</p>
+        <h2 class="title" data-reveal>Three steps to <span class="gradient-text">your first project</span></h2>
+        <ol class="steps">
+          <li data-reveal><span class="num">1</span><h3>Download</h3><p>Pick the version for your system. No account or credit card needed.</p></li>
+          <li data-reveal><span class="num">2</span><h3>Learn</h3><p>Go through the manual and the free training. Start with a simple object.</p></li>
+          <li data-reveal><span class="num">3</span><h3>Create</h3><p>Model, animate, render and share what you made with the community.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-card" data-reveal>
+          <div class="cta-glow" aria-hidden="true"></div>
+          <h2>Build your own world.</h2>
+          <p>Download Blender and start creating.</p>
+          <div class="hero-buttons center">
+            <a class="btn btn-big" data-download href="https://www.blender.org/download/" target="_blank" rel="noopener">Download Blender</a>
+            <a class="btn btn-ghost btn-big" href="https://www.blender.org/about/" target="_blank" rel="noopener">About the project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="#home" aria-label="Blender, unofficial concept">
+            <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+              <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="url(#logoGrad)"/>
+              <polygon points="16,9 22,12.5 22,19.5 16,23 10,19.5 10,12.5" fill="none" stroke="#1a0d00" stroke-width="2.2" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-name">Blender</span>
+            <em class="logo-tag">concept</em>
+          </a>
+          <p>A redesign concept for the landing page of a free and open source 3D program.</p>
+        </div>
+        <div>
+          <h4>Downloads</h4>
+          <a href="https://www.blender.org/download/" target="_blank" rel="noopener">Latest version</a>
+          <a href="https://www.blender.org/download/lts/" target="_blank" rel="noopener">LTS versions</a>
+          <a href="https://www.blender.org/download/requirements/" target="_blank" rel="noopener">System requirements</a>
+        </div>
+        <div>
+          <h4>Learn</h4>
+          <a href="https://docs.blender.org/manual/en/latest/" target="_blank" rel="noopener">Manual</a>
+          <a href="https://docs.blender.org/api/current/" target="_blank" rel="noopener">Python API</a>
+          <a href="https://studio.blender.org/" target="_blank" rel="noopener">Blender Studio</a>
+        </div>
+        <div>
+          <h4>Get involved</h4>
+          <a href="https://www.blender.org/community/" target="_blank" rel="noopener">Community</a>
+          <a href="https://code.blender.org/" target="_blank" rel="noopener">Development blog</a>
+          <a href="https://fund.blender.org/" target="_blank" rel="noopener">Donate</a>
+        </div>
+      </div>
+      <p class="disclaimer">© <span id="year"></span> Unofficial concept page, made as an exercise. The Blender name and official materials belong to the Blender Foundation and its contributors. This page does not use the official logo or images; the illustrations are original.</p>
+    </div>
+  </footer>
+
+  <script src="art.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>     
